@@ -1,0 +1,48 @@
+﻿@inherits TravelCalculatorBase
+@using Refactoring.Enums
+
+<h1>Travel time calculator</h1>
+
+<div class="container">
+    <div class="row">
+        Select two cities and a mode of transportation:
+    </div>
+    <div class="row" style="margin-top: 10px">
+        <div class="col-md-auto">
+            Origin
+            <select @bind="SelectedOrigin">
+                <option></option>
+                <option>Columbus, OH</option>
+                <option>Detroit, MI</option>
+                <option>Pittsburgh, PA</option>
+            </select>
+        </div>
+        <div class="col-md-auto">
+            Destination
+            <select @bind="SelectedDestination">
+                <option></option>
+                <option>Cincinnati, OH</option>
+                <option>Cleveland, OH</option>
+                <option>Dayton, OH</option>
+            </select>
+        </div>
+        <div class="col-md-auto">
+            Mode
+            <select @bind="SelectedModeOfTravel">
+                <option></option>
+                @foreach (var mode in Enum.GetValues<ModeOfTravel>().Cast<ModeOfTravel>())
+                {
+                    <option>@mode</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px; margin-bottom: 20px">
+        <div class="col-md-auto">
+            <button @onclick="@CalculateTravelTime">Calculate</button>
+        </div>
+    </div>
+    <div>
+        <h4>Calculated Travel Time: @CalculatedTravelTime</h4>
+    </div>
+</div>
