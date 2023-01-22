@@ -1,7 +1,9 @@
-﻿namespace Refactoring.Interfaces
+﻿using Refactoring.Enums;
+
+namespace Refactoring.Interfaces
 {
     public interface ITravelStrategyFactory
     {
-        ITravelStrategy ResolveStrategy(string name);
+        ITravelStrategy ResolveStrategy(ModeOfTravel modeOfTravel);
     }
 }
