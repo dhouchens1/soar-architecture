@@ -1,6 +1,6 @@
 **SOAR Architecture - Refactoring Exercise**
 
-**Problem:** The sample application is a simple Blazor Server app that calculates travel time based on an origin city, destination city, and mode of travel.  It first retrieves the distance between two cities based on an included .csv file, and then calculates travel time using an ugly if/else block that approximates speed based on the mode of travel.  Unfortunately, most of the logic is in a monolith class (`Components/TravelCalculatorBase`) that does many things and is tightly coupled to many dependencies. This violates many SOLID principles and would be very difficult to unit test.
+**Problem:** The sample application is a simple Blazor Server app that calculates travel time based on an origin city, destination city, and mode of travel.  It first retrieves the distance between two cities based on an included .csv file, and then calculates travel time using an ugly if/else block that approximates speed based on the mode of travel.  Unfortunately, most of the logic is in a monolith class (`Components/TravelCalculatorBase`) that does many things and is tightly coupled to many dependencies. This is not SOLID, and would be very difficult to unit test.
 
 **Solution:** Use dependency injection, as well as the strategy, factory, and repository patterns to clean up the code, make it more readable, and make the components loosely coupled so they can easily be unit tested.
 
