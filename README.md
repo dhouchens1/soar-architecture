@@ -8,7 +8,7 @@
 
  2. Uncomment the `IDistanceService` injection as the top of the `TravelCalculatorBase` class.  Also uncomment line 7 in `Program.cs`, and add the necessary using statement for `IDistanceService`.  By adding these two lines, we've told the .Net dependency injection container to return an instance of `CsvDistanceService` whenever the code asks for an instance of `IDistanceService`.  The service will then automatically be resolved when a `TravelCalculatorBase` instance is created.  We can then use the injected `IDistanceService` to calculate the distance between two cities.
  
- 3.  Next, the travel time calculation itself is a good candidate for the strategy pattern, since it represents different ways of doing something based on an input parameter.  Create a separate implementation of `ITravelStrategy` in the strategies folder for each mode of travel.
+ 3.  Next, the travel time calculation itself is a good candidate for the strategy pattern, since it represents different ways of doing something based on an input parameter.  Create a separate implementation of `ITravelStrategy` in the strategies folder for each mode of travel and implement the `CalculateTravelTime()` method.
  
  4.  Now we need a way to resolve the correct strategy based on the mode of travel that the user selected.  We can use the factory pattern here by creating an implementation of `ITravelStrategyFactory`.  This will contain an if/else block (or even better, a switch statement) and return an instance of `ITravelStrategy`.  Similar to what was done to inject `IDistanceService`, we'll need to uncomment the lines in `Program.cs` and `TravelCalculatorBase` to wire up dependency injection for the factory.
  
