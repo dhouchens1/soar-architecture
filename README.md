@@ -4,7 +4,7 @@
 
 **Solution:** Use dependency injection, as well as the strategy, factory, and repository patterns to clean up the code, make it more readable, and make the components loosely coupled so they can easily be unit tested.
 
- 1. Extract the logic to read from the .csv file that's in TravelComponentBase into a separate class in the services folder called `CsvDistanceService` that implements the `IDistanceService` interface.
+ 1. Extract the logic to read from the .csv file that's in TravelComponentBase into a separate class in the services folder called `CsvDistanceService` that implements the `IDistanceService` interface. The `GetDistanceInMiles()` method in the new service will need to return a Task in order implement `IDistanceService`, so you'll need to use `Task.FromResult()` to wrap the result into a Task object.
 
  2. Uncomment the `IDistanceService` injection as the top of the `TravelCalculatorBase` class.  Also uncomment line 7 in `Program.cs`, and add the necessary using statement for `IDistanceService`.  By adding these two lines, we've told the .Net dependency injection container to return an instance of `CsvDistanceService` whenever the code asks for an instance of `IDistanceService`.  The service will then automatically be resolved when a `TravelCalculatorBase` instance is created.  We can then use the injected `IDistanceService` to calculate the distance between two cities.
  
