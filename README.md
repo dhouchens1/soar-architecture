@@ -6,7 +6,7 @@
 
  1. Extract the logic to read from the .csv file that's in TravelComponentBase into a separate class in the services folder called `CsvDistanceService` that implements the `IDistanceService` interface.
 
- 2. Uncomment the `IDistanceService` injection as the top of the `TravelCalculatorBase` class.  Also uncomment line 7 in `Program.cs`.  By adding these two lines, we've told the .Net dependency injection container to return an instance of `CsvDistanceService` whenever the code asks for an instance of `IDistanceService`.  The service will then automatically be resolved when a `TravelCalculatorBase` instance is created.  We can then use the injected `IDistanceService` to calculate the distance between two cities.
+ 2. Uncomment the `IDistanceService` injection as the top of the `TravelCalculatorBase` class.  Also uncomment line 7 in `Program.cs`, and add the necessary using statement for `IDistanceService`.  By adding these two lines, we've told the .Net dependency injection container to return an instance of `CsvDistanceService` whenever the code asks for an instance of `IDistanceService`.  The service will then automatically be resolved when a `TravelCalculatorBase` instance is created.  We can then use the injected `IDistanceService` to calculate the distance between two cities.
  
  3.  Next, the travel time calculation itself is a good candidate for the strategy pattern, since it represents different ways of doing something based on an input parameter.  Create a separate implementation of `ITravelStrategy` in the strategies folder for each mode of travel.
  
