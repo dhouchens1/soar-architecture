@@ -10,21 +10,11 @@
     <div class="row" style="margin-top: 10px">
         <div class="col-md-auto">
             Origin
-            <select @bind="SelectedOrigin">
-                <option></option>
-                <option>Columbus, OH</option>
-                <option>Detroit, MI</option>
-                <option>Pittsburgh, PA</option>
-            </select>
+            <input type="text" @bind="SelectedOrigin" />
         </div>
         <div class="col-md-auto">
             Destination
-            <select @bind="SelectedDestination">
-                <option></option>
-                <option>Cincinnati, OH</option>
-                <option>Cleveland, OH</option>
-                <option>Dayton, OH</option>
-            </select>
+            <input type="text" @bind="SelectedDestination" />
         </div>
         <div class="col-md-auto">
             Mode

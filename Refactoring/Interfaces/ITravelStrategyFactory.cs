@@ -4,6 +4,6 @@ namespace Refactoring.Interfaces
 {
     public interface ITravelStrategyFactory
     {
-        ITravelStrategy ResolveStrategy(ModeOfTravel modeOfTravel);
+        ITravelStrategy ResolveStrategy(ModeOfTravel travelMode);
     }
 }

@@ -1,11 +1,14 @@
+using Refactoring.Interfaces;
+using Refactoring.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
-// builder.Services.AddTransient<IDistanceService, CsvDistanceService>();
-// builder.Services.AddTransient<ITravelStrategyFactory, TravelStrategyFactory>();
+builder.Services.AddTransient<IDistanceService, MapQuestDistanceService>();
+builder.Services.AddTransient<ITravelStrategyFactory, TravelStrategyFactory>();
 
 var app = builder.Build();
 
